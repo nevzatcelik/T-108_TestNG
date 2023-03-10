@@ -72,6 +72,21 @@ public class QualityPage {
     @FindBy(xpath = "//input[@id='FristName']")
     public WebElement profileFirstNameBox;
 
+    @FindBy(name = "last_name")
+    public WebElement profileLastNameBox;
+
+    @FindBy(xpath = "//body[@id='tinymce']")
+    public WebElement biographyBox;
+
+    @FindBy(xpath = "//iframe[@id='Biography_ifr']")
+    public WebElement iframe;
+
+    @FindBy(xpath = "//*[.='Save']")
+    public WebElement saveBtn;
+
+    @FindBy(xpath = "//*[text()='Top Categories']")
+    public WebElement topCategories;
+
 
        /*
               if (qualityPage.cookies.isDisplayed()){

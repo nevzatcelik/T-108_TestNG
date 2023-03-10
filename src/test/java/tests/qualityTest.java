@@ -1,6 +1,8 @@
 package tests;
 
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.interactions.Actions;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 import pages.QualityPage;
@@ -33,8 +35,35 @@ public class qualityTest {
         System.out.println(qualityPage.profileFirstNameBox.getAttribute("value"));
         String firstname=qualityPage.profileFirstNameBox.getAttribute("value");
         SoftAssert softAssert=new SoftAssert();
-        softAssert.assertTrue(firstname.contains("nevzat"));
+        softAssert.assertTrue(firstname.contains("Furkan"));
+        String lastname=qualityPage.profileLastNameBox.getAttribute("value");
+        softAssert.assertTrue(lastname.contains("Inal"),"lastname duzgun calismiyor");
+        Driver.getDriver().switchTo().frame(qualityPage.iframe);
+        String biagraphy=qualityPage.biographyBox.getText();
+        softAssert.assertTrue(biagraphy.contains("VELI"));
+        System.out.println(biagraphy);
+        Driver.getDriver().switchTo().defaultContent();
+        // Bu kutucuklarda degisiklik yaparak kaydeder degisiklikleri dogrular
+        qualityPage.profileFirstNameBox.clear();
+        qualityPage.profileFirstNameBox.sendKeys("nevzat");
+        qualityPage.profileLastNameBox.clear();
+        qualityPage.profileLastNameBox.sendKeys("celik");
+        Driver.getDriver().switchTo().frame(qualityPage.iframe);
+        qualityPage.biographyBox.clear();
+        qualityPage.biographyBox.sendKeys("wisequarter");
+        Driver.getDriver().switchTo().defaultContent();
+        ReusableMethods.bekle(2);
+        actions.sendKeys(Keys.PAGE_DOWN).perform();
+        ReusableMethods.bekle(2);
+        qualityPage.saveBtn.click();
+
+
+
+
+
         softAssert.assertAll();
+
+
 
     }
 }
