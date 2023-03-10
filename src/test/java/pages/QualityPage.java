@@ -1,5 +1,6 @@
 package pages;
 
+import org.bouncycastle.jcajce.provider.asymmetric.X509;
 import org.bouncycastle.pqc.crypto.newhope.NHOtherInfoGenerator;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -60,7 +61,16 @@ public class QualityPage {
         passwordBox.sendKeys("Nevzat152032");
         loginButton.click();
     }
+    // url>>login>>homepage==sag kose kullanici logo
+    @FindBy(xpath = "(//img[@class='img-fluid'])[1]")
+    public WebElement kullaniciLogo;
 
+    //url>>login>>homepage>>instructor==message butonu sol kose
+    @FindBy(xpath = "(//li[@class='user-dropdown-menu-item'])[5]")
+    public WebElement userProfile;
+
+    @FindBy(xpath = "//input[@id='FristName']")
+    public WebElement profileFirstNameBox;
 
 
        /*
