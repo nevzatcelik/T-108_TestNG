@@ -5,7 +5,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import pages.*;
+import pages.ieEnstitutu.*;
 import utilities.ConfigReader;
 import utilities.Driver;
 
@@ -65,6 +65,7 @@ public class test1 {
         // egitimin ucretsiz oldugunu test eder ve siparisi tamamlar
         Assert.assertTrue(kimlik.ucretsizEgitimCheck.isDisplayed());
         kimlik.siparisiTamamlaButton.click();
+
     }
 
     @Test
@@ -72,6 +73,7 @@ public class test1 {
        Driver.getDriver().get("https://www.iienstitu.com/en");
        homepage.loginButtonHomePage.click();
        loginPage.loginBilgiler();
+
 
     }
 }
